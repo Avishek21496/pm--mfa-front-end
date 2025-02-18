@@ -1,0 +1,1 @@
+export const SERVER_URL = 'https://crafto-pia-server-side.vercel.app'
