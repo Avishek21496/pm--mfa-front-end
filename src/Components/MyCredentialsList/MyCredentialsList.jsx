@@ -54,7 +54,7 @@ const MyCredentialsList = () => {
   };
 
   return (
-    <div className="p-5">
+    <div className="p-5 bg-white">
       {loading ? (
         <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75 z-50">
           <span className="loading loading-spinner loading-lg"></span>
@@ -76,7 +76,7 @@ const MyCredentialsList = () => {
                     <button className="btn btn-success">Update</button>
                   </Link>
                 </div>
-                <div className="flex space-x-2 text-sm dark:text-gray-600">
+                <div className="flex space-x-2 text-sm ">
                   <button
                     onClick={() => handleDelete(savedPassword._id)}
                     className="btn btn-error"

@@ -1,27 +1,76 @@
-# My website Name is Craftopia.
+# Password Manager with Multi-Factor Authentication (MFA)
 
-Live site: https://artcraftopia-35bde.web.app/
+## 📌 Overview
+This **Password Manager** is a secure and user-friendly application designed to store and manage passwords efficiently. It incorporates **Multi-Factor Authentication (MFA)** to enhance security. The system allows users to:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Store passwords securely with associated platform names and owners.
+- Check the strength of passwords before saving.
+- Implement MFA for enhanced security.
 
-Here 5 features of my website craftopia:
+## 🚀 Features
+- **Secure Password Storage**: Stores passwords with their respective platform and owner details.
+- **Password Strength Checker**: Analyzes password strength before saving.
+- **Multi-Factor Authentication (MFA)**: Adds an extra layer of security.
+- **User Authentication**: Firebase handles user authentication.
+- **Modern UI**: Built with HTML, CSS, and JavaScript.
+- **Real-time Database**: MongoDB stores encrypted password data.
 
-- In this website User can come and explore the website. But i have used react router in my website. There are Public and private routes are available 
-user can access the public routes or pages, but to go to protected or private route user hve to log in or register.
+## 🛠️ Tech Stack
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Firebase Authentication, Node.js
+- **Database**: MongoDB
 
-- User can log in with their email password or can sign in with github,google directly. After log in user can access the private route like add craft items and my craft list. User can add craft items and can see only the items that user has added. one user can not see others craft item.
+## 🔐 Security Measures
+- **Multi-Factor Authentication (MFA)** for user authentication.
+- **Secure Storage** of passwords in an encrypted format.
+- **Password Strength Analysis** to prevent weak passwords.
 
-- Users can delete and and update their item , users added item is send to the mogodb database with their corresponding email. From the server side users email is used to find their data.
+## 📂 Project Structure
+```
+password-manager/
+│── public/
+│   ├── index.html
+│   ├── styles.css
+│   ├── script.js
+│
+│── server/
+│   ├── server.js
+│   ├── database.js
+│
+│── config/
+│   ├── firebaseConfig.js
+│
+│── README.md
+│── package.json
+```
 
-- Any one can see the subcategory items from the home page. The subcategory name is used to find all the items that comes under the category list form the database.
+## 🛠️ Installation & Setup
+1. **Clone the Repository**
+   ```sh
+   git clone https://github.com/yourusername/password-manager.git
+   cd password-manager
+   ```
+2. **Install Dependencies**
+   ```sh
+   npm install
+   ```
+3. **Setup Firebase**
+   - Configure Firebase Authentication in `config/firebaseConfig.js`.
+   
+4. **Run the Server**
+   ```sh
+   node server.js
+   ```
+5. **Open in Browser**
+   - Visit `http://localhost:5173`
 
-- There is light/dark mode theme is applied to the website. Slider banner is used in the home page using swiper slider. Additionally react tooltip and react awesome reveals library has been used to make the website more attractive.
+## 📌 Future Enhancements
+- Implement **Biometric Authentication**.
+- Add **Password Generator** feature.
+- Enable **Cloud Backup** for password storage.
 
-# Selected Category is: Painting and Drawing.
-sub categories are
- a. Landscape Painting
- b. Portrait Drawing
- c. Watercolour Painting
- d. Oil Painting:
- e. Charcoal Sketching: 
- f. Cartoon Drawing
+## 📝 License
+This project is **open-source** and available under the MIT License.
+
+---
+### 🎯 Made with ❤️ by Avishek Roy

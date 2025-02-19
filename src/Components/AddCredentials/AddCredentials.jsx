@@ -56,14 +56,14 @@ export const AddCredentials = () => {
       });
   };
   return (
-    <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
+    <section className="p-6">
       <form
         onSubmit={handleAddCraft}
         noValidate=""
         action=""
         className="container flex flex-col mx-auto space-y-12"
       >
-        <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
+        <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm">
           <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-6">
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="firstname" className="text-sm">
@@ -74,7 +74,7 @@ export const AddCredentials = () => {
                 type="text"
                 name="platform"
                 placeholder="Enter Platform Name"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 text-white p-2"
               />
             </div>
             <div className="col-span-full sm:col-span-3">
@@ -86,7 +86,7 @@ export const AddCredentials = () => {
                 name="owner"
                 type="text"
                 placeholder="Enter the owner Name"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 text-white p-2"
               />
             </div>
             <div className="col-span-full sm:col-span-3">
@@ -98,7 +98,7 @@ export const AddCredentials = () => {
                 name="email"
                 type="email"
                 placeholder="Enter email address"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 text-white p-2"
               />
             </div>
             <div className="col-span-full sm:col-span-3">
@@ -110,7 +110,7 @@ export const AddCredentials = () => {
                 name="password"
                 type="text"
                 placeholder="Enter password"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 text-white p-2"
               />
             </div>
             <div className="col-span-full">

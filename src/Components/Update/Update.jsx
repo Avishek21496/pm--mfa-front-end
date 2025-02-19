@@ -74,7 +74,7 @@ const Update = () => {
   return (
     // <div>
 
-    <section className="p-3 border-2 dark:bg-gray-100 dark:text-gray-900">
+    <section className="p-3 border-2">
       <form
         onSubmit={handleUpdate}
         noValidate=""
@@ -93,7 +93,7 @@ const Update = () => {
                 defaultValue={platform_name}
                 name="platform"
                 placeholder="Enter Platform Name"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300 p-2"
               />
             </div>
             <div className="col-span-full sm:col-span-3">
@@ -106,7 +106,7 @@ const Update = () => {
                 defaultValue={platform_email}
                 type="text"
                 placeholder="Enter the owner Name"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300 p-2"
               />
             </div>
             <div className="col-span-full sm:col-span-3">
@@ -119,7 +119,7 @@ const Update = () => {
                 defaultValue={platform_owner}
                 type="text"
                 placeholder="Enter email address"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300 p-2"
               />
             </div>
             <div className="col-span-full sm:col-span-3">
@@ -132,7 +132,7 @@ const Update = () => {
                 defaultValue={platform_password}
                 type="text"
                 placeholder="Enter password"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300 p-2"
               />
             </div>
             <div className=" col-span-full">
