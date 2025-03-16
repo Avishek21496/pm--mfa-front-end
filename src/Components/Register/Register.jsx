@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 
 const Register = () => {
-    const { createUser, updateUserProfile , setOn} = useContext(AuthContext);
+    const { createUser, updateUserProfile , setOn, logOut } = useContext(AuthContext);
     const navigate = useNavigate()
     const [registerError, setRegisterError] = useState('');
     const [show, setShow] = useState(false);
@@ -43,15 +43,16 @@ const Register = () => {
         createUser(email, password)
         .then(result =>{
             console.log(result.user)
-            navigate('/');
-            toast.success('You have been Registered Successfully', { duration: 4000 })
+            toast.success('You have been Registered Successfully. Please log in again', { duration: 4000 })
+            navigate('/login');
             updateUserProfile(name, photo)
             .then(() => {
                 setOn(true);
                 
             } )
+            logOut()
         })
-        .catch(() => toast.error('E-mail already in use.', { duration: 4000 }))
+        .catch(() => toast.error('E-mail already in use.', { duration: 4000 }))
     }
     return (
         <div>
