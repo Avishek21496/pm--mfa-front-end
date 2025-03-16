@@ -41,18 +41,29 @@ export const AddCredentials = () => {
     fetch(`${SERVER_URL}/saveCredentials`, {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("access-token")} `
       },
       body: JSON.stringify(savedPlatform),
     })
-      .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) {
+        // ✅ Handle potential errors
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
       .then((data) => {
         if (data.insertedId) {
           setLoading(false);
-          toast.success("Your Credentials has been added successfully");
+          toast.success("Your credentials have been added successfully");
           e.target.reset();
         }
-        console.log(data);
+        console.log("Response Data:", data);
+      })
+      .catch((error) => {
+        console.error("API Error:", error);
+        setLoading(false);
       });
   };
   return (

@@ -52,11 +52,18 @@ const Update = () => {
     fetch(`${SERVER_URL}/updateCredentials/${_id}`, {
       method: "PUT",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("access-token")}`, // ✅ Include token
       },
       body: JSON.stringify(updateInfo),
     })
-      .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) {
+        // ✅ Handle potential errors
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
       .then((data) => {
         if (data.modifiedCount > 0) {
           setReload(true);
@@ -64,10 +71,14 @@ const Update = () => {
           toast.success("Your information has been successfully updated.", {
             duration: 3000,
           });
-        }
-        if ((data.modifiedCount == 0)) {
+        } else {
           setLoading(false);
+          toast.info("No changes were made.", { duration: 3000 }); // Optional: Notify user if nothing was updated
         }
+      })
+      .catch((error) => {
+        console.error("API Error:", error);
+        setLoading(false);
       });
   };
 

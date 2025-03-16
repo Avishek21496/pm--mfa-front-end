@@ -45,8 +45,26 @@ const router = createBrowserRouter([
             <Update></Update>
           </PrivateRoutes>
         ),
-        loader: ({ params }) =>
-          fetch(`${SERVER_URL}/selectedPlatform/${params.id}`),
+        loader: async ({ params }) => {
+          const accessToken = localStorage.getItem("access-token"); // ✅ Get token from localStorage
+
+          const response = await fetch(
+            `${SERVER_URL}/selectedPlatform/${params.id}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`, // ✅ Include token
+              },
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`); // ✅ Handle errors
+          }
+
+          return response.json(); // ✅ Parse response JSON
+        },
       },
       {
         path: "/register",

@@ -16,8 +16,21 @@ const MyCredentialsList = () => {
   // ----------------------------PAsswords api----------------------------------------------
   useEffect(() => {
     setLoading(true);
-    fetch(`${SERVER_URL}/myCredentials/${user.email}`)
-      .then((res) => res.json())
+    const accessToken = localStorage.getItem("access-token");
+    fetch(`${SERVER_URL}/myCredentials/${user.email}`, {
+      method: "GET", // Explicitly define the request method
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`, // ✅ Include token in Authorization header
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          // ✅ Handle unauthorized cases
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
         setSavedPasswords(data);
         setLoading(false);
@@ -37,8 +50,18 @@ const MyCredentialsList = () => {
       if (result.isConfirmed) {
         fetch(`${SERVER_URL}/deletePlatformCredentials/${id}`, {
           method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("access-token")}`, // ✅ Include token
+          },
         })
-          .then((res) => res.json())
+          .then((res) => {
+            if (!res.ok) {
+              // ✅ Handle potential errors
+              throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+            return res.json();
+          })
           .then((data) => {
             if (data.deletedCount > 0) {
               setReload(!reload);
@@ -47,7 +70,21 @@ const MyCredentialsList = () => {
                 text: "Your saved password has been deleted.",
                 icon: "success",
               });
+            } else {
+              Swal.fire({
+                title: "Not Found!",
+                text: "No matching credential found to delete.",
+                icon: "warning",
+              });
             }
+          })
+          .catch((error) => {
+            console.error("API Error:", error);
+            Swal.fire({
+              title: "Error!",
+              text: "Something went wrong while deleting the credential.",
+              icon: "error",
+            });
           });
       }
     });
